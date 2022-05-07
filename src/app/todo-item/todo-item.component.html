@@ -1,0 +1,39 @@
+<div
+        class="todos-item mx-auto"
+        [class.completed]="todo.completed"
+        (click)="onTodoClicked()"
+        
+      >
+        <div class="make-row"
+        >
+          <div class="text-check"  awesomeTooltip="Drag me or click for done">
+            <div class="check-box mr-1">
+              <i class="material-icons">check</i>
+            </div>
+            <div class="todo-text">
+              {{ todo.text }}
+            </div>
+          </div>
+          <div class="todo-controls-box" (click)="$event.stopImmediatePropagation()">
+            <div class="todo-control-butt edit-todo" (click)="onEditClicked()" awesomeTooltip="Edit Todo">
+              <i class="material-icons" >edit</i>
+            </div>
+            <div class="todo-control-butt delete-todo" (click)="onDeleteClicked()" awesomeTooltip="Delete Todo">
+              <i class="material-icons">delete</i>
+            </div>
+          </div>
+        </div>
+        <progress
+          class="progress is-small is-primary"
+          max="100"
+          #progress
+        ></progress>
+      </div>
+      <app-edit-todo 
+      [openEdit]="showEdit"
+      *ngIf="showEdit" 
+      (onClose)="showEdit=false"
+      [todo]="todo"
+      (onClose) = "changeTodo($event)" 
+      ></app-edit-todo>
+                                                                   

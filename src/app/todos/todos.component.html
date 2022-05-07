@@ -1,0 +1,58 @@
+<section class="section-header">
+  <h1 class="is-1 title has-text-light">Todos</h1>
+</section>
+<div class="container is-widescreen">
+  <div class="add-to-do-box">
+    <form action="" #form="ngForm" (ngSubmit)="onFormSubmit(form)" novalidate>
+      <h2 class="is-4 title">New todo</h2>
+      <div class="field has-addons">
+        <div class="control pr-1">
+          <input
+            awesomeTooltip="Enter Text"
+            ngModel
+            #todoTextField="ngModel"
+            required
+            name="text"
+            class="input"
+            type="text"
+            placeholder="Type to do"
+            minlength="2"
+          />
+        </div>
+        <div class="control" awesomeTooltip="Add To">
+          <button class="button butt-shadow is-info" >
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="todoTextField.invalid && (todoTextField.dirty)">
+        <p class="help is-danger" *ngIf="todoTextField.errors?.['required']">
+          Can't submit empty todo
+        </p>
+        <p class="help is-danger" *ngIf="todoTextField.errors?.['minlength']">
+          Text must be longer than two letters
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <article class="todos-list mx-auto"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)">
+      <app-todo-item *ngFor="let todo of todos"
+       [todo]="todo" 
+       cdkDrag
+      (todoClicked)="onTodoClicked(todo)"
+      (deleteClicked)="onDeleteClicked(todo)" 
+      (editClicked)="onEditClicked(todo)"
+       >  <!--  
+      
+        -->
+      </app-todo-item>
+    </article>
+  </div>
+</section>
+
+

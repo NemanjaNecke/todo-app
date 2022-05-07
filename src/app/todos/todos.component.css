@@ -1,0 +1,53 @@
+
+.section-header {
+  height: 15rem;
+  background: linear-gradient(to right, rgb(30, 170, 244), rgb(170, 230, 250));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-to-do-box {
+  top: 9.5rem;
+  left: 19rem;
+  z-index: 2;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 57%;
+  background-color: white;
+  box-shadow: 0 0.8rem 1rem grey;
+  position: fixed;
+}
+
+.field {
+  width: 75%;
+  justify-content: center;
+}
+input {
+  width: 25rem;
+}
+.field:hover > .control > input {
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.field:hover > .control > .butt-shadow {
+  border: 2px solid black;
+}
+
+.todos-list {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+app-todo-item {
+  width: 100%;
+}

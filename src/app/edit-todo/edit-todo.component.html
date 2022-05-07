@@ -1,0 +1,33 @@
+<div id="modal" class="modal" ngClass="openEdit ? is-active">
+
+
+    <div class="modal-background" (click)="cancel()"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+          <h1 class="is-5">Edit todo</h1>
+        <form #form="ngForm">
+            <div class="field">
+                <div class="control">
+                    <input #edit type="text" class="input" placeholder="Enter text" name="text" [ngModel]="todo.text">
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+
+
+<br>
+<div class="field is-grouped is-grouped-right">
+    <div class="control">
+        <button type="button" class="button butt-shadow is-danger " aria-label="close" (click)="cancel()" title="Cancel">
+            <i class="material-icons">cancel</i>
+        </button>
+</div>
+<div class="contro">
+    <button class="button butt-shadow is-info" (click)="onTodoUpdated(form)" title="Save">
+        <i class="material-icons">save</i>
+    </button>
+</div>
+</div>
+</div>

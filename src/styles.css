@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import '../node_modules/bulma/css/bulma.min.css';
+*, html {
+    overflow-x: unset;
+    overflow-y: unset;
+}
